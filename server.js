@@ -11,15 +11,16 @@ const port = args.port || 5000;
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
-app.get('/app/', (req, res, next) => {
+app.get('/app/', (req, res) => {
     res.send("200 OK").end();
 });
 
-app.get('/app/roll/', (req, res, next) => {
-    res.send(roll(6,2,1)).end();
+app.get('/app/roll/', (req, res) => {
+    var output = roll(6,2,1);
+    res.send(JSON.stringify(output)).end();
 });
 
-app.get('/app/roll/', (req, res, next) => {
+app.get('/app/roll/', (req, res) => {
     res.send(roll()).end();
 });
 
