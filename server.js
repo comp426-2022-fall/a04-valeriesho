@@ -21,7 +21,11 @@ app.get('/app/roll/', (req, res) => {
 });
 
 app.get('/app/roll/', (req, res) => {
-    res.send(roll()).end();
+    var sides = parseInt(req.params.sides);
+    var dice = parseInt(req.params.dice);
+    var rolls = parseInt(req.params.rolls);
+    var output = roll(sides, dice, rolls);
+    res.send(JSON.stringify(output)).end();
 });
 
 app.listen(port, () => {
