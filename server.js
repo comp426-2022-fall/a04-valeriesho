@@ -24,7 +24,7 @@ app.get('/app/roll/', (req, res) => {
     res.send(JSON.stringify(output)).end();
 });
 
-app.get('/app/roll/', (req, res) => {
+app.post('/app/roll/', (req, res) => {
     var sides = parseInt(req.body.sides);
     var dice = parseInt(req.body.dice);
     var rolls = parseInt(req.body.rolls);
