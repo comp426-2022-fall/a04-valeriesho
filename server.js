@@ -35,14 +35,14 @@ app.post('/app/roll/', (req, res) => {
 app.get('/app/roll/:sides/', (req, res) => {
     var sides = parseInt(req.params.sides);
     var output = roll(sides, 2, 1);
-    res.send(JSON.stringify(output));
+    res.send(JSON.stringify(output)).end();
 });
 
 app.get('/app/roll/:sides/:dice/', (req, res) => {
     var sides = parseInt(req.params.sides);
     var dice = parseInt(req.params.dice);
     var output = roll(sides, dice, 1);
-    res.send(JSON.stringify(output));
+    res.send(JSON.stringify(output)).end();
 });
 
 app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
@@ -50,7 +50,7 @@ app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
     var dice = parseInt(req.params.dice);
     var rolls = parseInt(req.params.rolls);
     var output = roll(sides, dice, rolls);
-    res.send(JSON.stringify(output));
+    res.send(JSON.stringify(output)).end();
 });
 
 app.get('*', (req, res) => {
