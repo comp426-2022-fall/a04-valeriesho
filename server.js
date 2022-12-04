@@ -9,7 +9,7 @@ const app = express();
 const port = args.port || 5000;
 
 app.use(express.urlencoded({extended:true}));
-app.use(express.json());
+//app.use(express.json());
 
 app.get('/app/', (req, res) => {
     res.send("200 OK").end();
@@ -21,9 +21,9 @@ app.get('/app/roll/', (req, res) => {
 });
 
 app.get('/app/roll/', (req, res) => {
-    var sides = parseInt(req.params.sides);
-    var dice = parseInt(req.params.dice);
-    var rolls = parseInt(req.params.rolls);
+    var sides = parseInt(req.body.sides);
+    var dice = parseInt(req.body.dice);
+    var rolls = parseInt(req.body.rolls);
     var output = roll(sides, dice, rolls);
     res.send(JSON.stringify(output)).end();
 });
