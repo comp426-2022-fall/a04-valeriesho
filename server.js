@@ -38,6 +38,13 @@ app.get('/app/roll/:sides/', (req, res) => {
     res.send(JSON.stringify(output));
 });
 
+app.get('/app/roll/:sides/:dice/', (req, res) => {
+    var sides = parseInt(req.params.sides);
+    var dice = parseInt(req.params.dice);
+    var output = roll(sides, dice, 1);
+    res.send(JSON.stringify(output));
+});
+
 app.get('*', (req, res) => {
     res.status(404).send("404 NOT FOUND");
 })
